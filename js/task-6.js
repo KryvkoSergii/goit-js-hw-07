@@ -10,14 +10,16 @@ function createBoxes(amount) {
   let dimesion = 30;
   document.querySelector("#controls input").value = "";
   destroyBoxes();
+  let accumulator = "";
   for (let i = 0; i < amount; i++) {
     const div = document.createElement("div");
     div.style.width = `${dimesion}px`;
     div.style.height = `${dimesion}px`;
     div.style.backgroundColor = getRandomHexColor();
     dimesion += 10;
-    boxes.append(div);
+    accumulator += div.outerHTML;
   }
+  boxes.innerHTML = accumulator;
 }
 
 function destroyBoxes() {
